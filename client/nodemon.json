@@ -1,0 +1,9 @@
+{
+	"ignore": [".git*", "node_modules/**/node_modules"],
+	"verbose": true,
+	"watch": ["./server.js", "./pnpm-lock.yml", "./nodemon.json"],
+	"env": {
+		"NODE_ENV": "development"
+	},
+	"exec": "ts-node ./server.ts"
+}
