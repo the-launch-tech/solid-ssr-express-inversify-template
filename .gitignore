@@ -1,6 +1,26 @@
-./client/node_modules
-./server/node_modules
-./client/dist
-./server/dist 
-./client/.env
-./server/.env
+# root
+node_modules/
+# root misc
+.pnpm-*.log
+.DS_Store
+.dccache
+.env
+**/.env
+**/ *.env
+
+# server
+server/node_modules/
+server/dist/
+# server misc
+server/.pnpm-*.log
+server/.DS_Store
+server/.dccache
+
+# client
+client/node_modules/
+client/dist/
+# client misc
+client/.pnpm-*.log
+client/.DS_Store
+client/.dccache
+client/.cert
