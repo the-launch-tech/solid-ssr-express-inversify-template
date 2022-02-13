@@ -15,6 +15,7 @@ specifiers:
   compression: ^1.7.4
   concurrently: ^6.3.0
   cross-env: ^7.0.3
+  dotenv: ^16.0.0
   eslint: ^8.8.0
   eslint-config-prettier: ^8.3.0
   eslint-plugin-ext: ^0.1.0
@@ -30,6 +31,7 @@ specifiers:
   postcss-scss: ^4.0.3
   prettier: ^2.5.1
   rollup-plugin-typescript-paths: ^1.3.0
+  sass: ^1.49.7
   serve-static: ^1.14.1
   solid-app-router: ^0.1.5
   solid-jest: ^0.2.0
@@ -46,6 +48,7 @@ specifiers:
 
 dependencies:
   compression: 1.7.4
+  dotenv: 16.0.0
   express: 4.17.1
   localstorage-polyfill: 1.0.1
   serve-static: 1.14.1
@@ -82,6 +85,7 @@ devDependencies:
   postcss-scss: 4.0.3_postcss@8.4.6
   prettier: 2.5.1
   rollup-plugin-typescript-paths: 1.3.0_typescript@4.4.4
+  sass: 1.49.7
   solid-jest: 0.2.0_58398598b7173df289a05a85a1fdd200
   stylelint: 14.4.0
   stylelint-config-recommended-scss: 5.0.2_postcss@8.4.6+stylelint@14.4.0
@@ -3006,6 +3010,11 @@ packages:
       is-obj: 2.0.0
     dev: true
 
+  /dotenv/16.0.0:
+    resolution: {integrity: sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==}
+    engines: {node: '>=12'}
+    dev: false
+
   /duplexer3/0.1.4:
     resolution: {integrity: sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=}
     dev: true
@@ -3832,6 +3841,10 @@ packages:
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
+    dev: true
+
+  /immutable/4.0.0:
+    resolution: {integrity: sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==}
     dev: true
 
   /import-fresh/3.3.0:
@@ -5758,6 +5771,16 @@ packages:
 
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+
+  /sass/1.49.7:
+    resolution: {integrity: sha512-13dml55EMIR2rS4d/RDHHP0sXMY3+30e1TKsyXaSz3iLWVoDWEoboY8WzJd5JMnxrRHffKO3wq2mpJ0jxRJiEQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.2
+      immutable: 4.0.0
+      source-map-js: 1.0.2
+    dev: true
 
   /saxes/5.0.1:
     resolution: {integrity: sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==}
