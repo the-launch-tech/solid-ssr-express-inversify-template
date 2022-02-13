@@ -8,7 +8,7 @@ const config = {
 	ssr: {
 		noExternal: ['solid-meta'],
 	},
-	assetsInclude: [/\/static\/.*$/],
+	assetsInclude: ['src/static/assets/**/*'],
 	build: {
 		assetsInlineLimit: 0,
 		target: 'esnext',
@@ -17,71 +17,21 @@ const config = {
 	resolve: {
 		extensions: ['.ts', '.js', '.tsx', '.jsx'],
 		alias: [
-			{ find: '@src', replacement: path.resolve(__dirname, 'src') + '/' },
-			{
-				find: '@server',
-				replacement: path.resolve(__dirname, 'src', 'server') + '/',
-			},
-			{
-				find: '@client',
-				replacement: path.resolve(__dirname, 'src', 'client') + '/',
-			},
-			{
-				find: '@internals',
-				replacement: path.resolve(__dirname, 'src', 'internals') + '/',
-			},
-			{
-				find: '@app',
-				replacement: path.resolve(__dirname, 'src', 'app') + '/',
-			},
-			{
-				find: '@di',
-				replacement: path.resolve(__dirname, 'src', 'app', 'di') + '/',
-			},
-			{
-				find: '@router',
-				replacement: path.resolve(__dirname, 'src', 'app', 'router') + '/',
-			},
-			{
-				find: '@images',
-				replacement: path.resolve(__dirname, 'src', 'app', 'assets', 'images') + '/',
-			},
-			{
-				find: '@styles',
-				replacement: path.resolve(__dirname, 'src', 'app', 'assets', 'styles') + '/',
-			},
-			{
-				find: '@pages',
-				replacement: path.resolve(__dirname, 'src', 'app', 'ui', 'pages') + '/',
-			},
-			{
-				find: '@components',
-				replacement: path.resolve(__dirname, 'src', 'app', 'ui', 'components') + '/',
-			},
-			{
-				find: '@partials',
-				replacement: path.resolve(__dirname, 'src', 'app', 'ui', 'partials') + '/',
-			},
-			{
-				find: '@store',
-				replacement: path.resolve(__dirname, 'src', 'app', 'store') + '/',
-			},
-			{
-				find: '@utils',
-				replacement: path.resolve(__dirname, 'src', 'app', 'utils') + '/',
-			},
-			{
-				find: '@http',
-				replacement: path.resolve(__dirname, 'src', 'app', 'http') + '/',
-			},
-			{
-				find: '@dto',
-				replacement: path.resolve(__dirname, 'src', 'app', 'http', 'dto') + '/',
-			},
-			{
-				find: '@context',
-				replacement: path.resolve(__dirname, 'src', 'app', 'context') + '/',
-			},
+			{ find: '@', replacement: path.resolve(__dirname, '/') },
+
+			{ find: '@src', replacement: path.resolve(__dirname, 'src/') },
+
+			{ find: '@ssr', replacement: path.resolve(__dirname, 'src/ssr/') },
+			{ find: '@server-entry', replacement: path.resolve(__dirname, 'src/ssr/server-entry/') },
+			{ find: '@client-entry', replacement: path.resolve(__dirname, 'src/ssr/client-entry/') },
+
+			{ find: '@app', replacement: path.resolve(__dirname, 'src/app/') },
+			{ find: '@ui', replacement: path.resolve(__dirname, 'src/app/ui/') },
+			{ find: '@pages', replacement: path.resolve(__dirname, 'src/app/ui/pages/') },
+			{ find: '@components', replacement: path.resolve(__dirname, 'src/app/ui/components/') },
+			{ find: '@assets', replacement: path.resolve(__dirname, 'src/app/assets/') },
+			{ find: '@static', replacement: path.resolve(__dirname, 'src/app/assets/static/') },
+			{ find: '@styles', replacement: path.resolve(__dirname, 'src/app/assets/styles/') },
 		],
 	},
 } as UserConfigExport;

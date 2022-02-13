@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <!--app-head-->
-  </head>
-  <body>
-    <div id="app"><!--app-html--></div>
-    <script type="module" src="/src/entry-client.tsx"></script>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"
+			integrity="sha384-rqn26AG5Pj86AF4SO72RK5fyefcQ/x32DNQfChxWvbXIyXFePlEktwD18fEz+kQU"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/src/app/assets/styles/_main.scss" />
+		<!--app-head-->
+	</head>
+	<body id="root">
+		<!--app-html-->
+		<script type="module" src="/src/ssr/client-entry/index.tsx"></script>
+		<script>
+			window.__INITIAL__DATA__ = '__INITIAL__DATA__SOURCE__';
+		</script>
+	</body>
 </html>
