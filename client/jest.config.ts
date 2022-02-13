@@ -4,7 +4,6 @@ const config: Config.InitialOptions = {
 	displayName: 'BROWSER',
 	preset: 'solid-jest/preset/browser',
 	verbose: true,
-	projects: ['<rootDir>/src/*'],
 	prettierPath: 'prettier',
 };
 

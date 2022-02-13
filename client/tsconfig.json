@@ -17,28 +17,25 @@
 		"declaration": true,
 		"types": ["vite/client", "jest"],
 		"outDir": "./dist",
-		"baseUrl": "." /* ./ */,
+		"baseUrl": ".",
 		"importHelpers": true,
 		"forceConsistentCasingInFileNames": true,
 		"paths": {
+			"@/*": ["./*"],
+
 			"@src/*": ["./src/*"],
-			"@server/*": ["./src/server/*"],
-			"@client/*": ["./src/client/*"],
-			"@internals/*": ["./src/internals/*"],
-			"@app/*": ["./src/app/*"],
-			"@images/*": ["./src/app/assets/images/*"],
-			"@styles/*": ["./src/app/assets/styles/*"],
-			"@di/*": ["./src/app/di/*"],
-			"@router/*": ["./src/app/router/*"],
-			"@ui/*": ["./src/app/ui/*"],
-			"@pages/*": ["./src/app/ui/pages/*"],
-			"@components/*": ["./src/app/ui/components/*"],
-			"@partials/*": ["./src/app/ui/partials/*"],
-			"@store/*": ["./src/app/store/*"],
-			"@utils/*": ["./src/app/utils/*"],
-			"@http/*": ["./src/app/http/*"],
-			"@dto/*": ["./src/app/http/dto/*"],
-			"@context/*": ["./src/app/context/*"]
+
+			"@ssr/*": ["src/ssr/*"],
+			"@server-entry/*": ["src/ssr/server-entry/*"],
+			"@client-entry/*": ["src/ssr/client-entry/*"],
+
+			"@app/*": ["src/app/*"],
+			"@ui/*": ["src/app/ui/*"],
+			"@pages/*": ["src/app/ui/pages/*"],
+			"@components/*": ["src/app/ui/components/*"],
+			"@assets/*": ["src/app/assets/*"],
+			"@styles/*": ["src/app/assets/styles/*"],
+			"@static/*": ["src/app/assets/static/*"]
 		}
 	}
 }

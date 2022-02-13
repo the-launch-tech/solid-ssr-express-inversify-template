@@ -4,6 +4,8 @@ import path from 'path';
 import express from 'express';
 import 'localstorage-polyfill';
 
+import { SSRRenderObject } from './src/ssr/server-entry/index';
+
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITE_TEST_BUILD;
 const PORT = process.env.PORT || '3000';
 
@@ -15,10 +17,8 @@ async function createServer(
 
 	const indexProd = isProd ? readFileSync(resolve('dist/client/index.html'), 'utf-8') : '';
 
-	/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-	const ProdRenderer = isProd ? require('./dist/server/entry-server.js').render : null;
-
-	// const manifest = isProd ? require('./dist/client/ssr-manifest.json') : {};
+	/* eslint-disable-next-line */
+	const manifest = isProd ? require('./dist/client/ssr-manifest.json') : {};
 
 	const app = express().disable('x-powered-by');
 
@@ -54,13 +54,17 @@ async function createServer(
 				? indexProd
 				: await vite.transformIndexHtml(url, readFileSync(resolve('index.html'), 'utf-8'));
 
-			const render = isProd ? ProdRenderer : (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
+			const render = isProd
+				? /* eslint-disable-next-line @typescript-eslint/no-var-requires */
+				  require('./dist/ssr/server-entry/index.js').render
+				: (await vite.ssrLoadModule('/src/ssr/server-entry/index.ts')).render;
 
-			const html = render(url);
+			const html: SSRRenderObject = await render(url);
 
 			const appHtml = template
 				.replace(`<!--app-head-->`, html.head + html.hydration)
-				.replace(`<!--app-html-->`, html.body);
+				.replace(`<!--app-html-->`, html.body)
+				.replace('__INITIAL__DATA__SOURCE__', JSON.stringify({}));
 
 			res.status(200).set({ 'Content-Type': 'text/html' }).end(appHtml);
 		} catch (e) {
